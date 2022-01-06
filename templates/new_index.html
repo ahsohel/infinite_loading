@@ -1,0 +1,17 @@
+{% load static %}
+{% load el_pagination_tags %}
+{% lazy_paginate 2 entry_list %}
+    {% for book in entry_list %}
+        {# your code to show the entry #}
+            <div class="card mb-3">
+                <img src="{{ book.image.url }}" class="card-img-top" alt="..." style=" width: 200px; background-color:grey; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text">{{ book.description }}</p>
+                    <p class="card-text"><small class="text-muted">{{ book.author }}</small></p>
+                </div>
+            </div>
+    {% endfor %}
+{% show_more "More results" %}
+
+
